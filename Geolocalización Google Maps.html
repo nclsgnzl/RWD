@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Geolocalización</title>
+	<style>
+		#map{
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<button onclick="encuentrame()">Ubicación Actual</button><br>
+
+	<div id="map"></div>
+	
+	<!-- llamamos a la api creada en google developers - Google Maps Static API -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBdQ1sUF8i-IBT2RCVwKbpH4QAJB3O4YI"></script>
+
+	<script>
+
+		function encuentrame(){
+			var output = document.getElementById("map");
+
+			//Verificar si soporta Geolocalización.
+			if(navigator.geolocation){
+				output.innerHTML = "<span>Tu navegador soporta Geolocalización</span>";
+			}else{
+				output.innerHTML = "<span>Tu navegador soporta Geolocalización</span>";
+			}
+
+			//Obtenemos latitud y longitud.
+			function localizacion(posicion){
+				//para encontrar nuestra posición actual
+				var latitude = posicion.coords.latitude;
+				var longitude = posicion.coords.longitude;
+
+				console.log("LAT: "+latitude);
+				console.log("LONG: "+longitude);
+
+				//verifica textualmente la latitud y la longitud de la posición actual del usuario.
+				//output.innerHTML = "<p>LAT: "+latitude+"<br> LONG: "+longitude+"</p>";
+
+				//muestra según la latitud y longitud rescatada, la ubicación del usuario.
+				mapaIMG = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=800x800&markers=color:red%7C+"+latitude+","+longitude+"&key=AIzaSyCBdQ1sUF8i-IBT2RCVwKbpH4QAJB3O4YI";
+
+				output.innerHTML = "<img src='"+mapaIMG+"'>";
+
+			}
+
+			//Obtenemos el error en caso de que lo exista.
+			function error(){
+				output.innerHTML = "<p>No se puedo obtener tu ubicación</p>";
+			}
+
+			//con getCurrentPosition se puede obtener la posición actual, dependiendo de las variables que se declaren al principio.
+			navigator.geolocation.getCurrentPosition(localizacion, error);
+		}
+
+	</script>
+	
+</body>
+</html>

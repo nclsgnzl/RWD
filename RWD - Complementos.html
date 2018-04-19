@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title> Responsive Web Design </title>
+	<!-- BOTON ARRIBA -->
+	<link rel="stylesheet" type="text/css" href="Up/style.css">
+	<!-- REDES SOCIALES -->
+	<link rel="stylesheet" type="text/css" href="rrss/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- JS -->
+	<script>
+		$(document).ready(function(){
+
+			//1.- para hacer el botón IR ARRIBA
+			$('.ir-arriba').click(function(){
+				$('body, html').animate({
+					scrollTop: '0px'
+				}, 2000);
+			});
+
+			$(window).scroll(function(){
+				if( $(this).scrollTop() > 0 ){
+					$('.ir-arriba').slideDown(500);
+				}else{
+					$('.ir-arriba').slideUp(500);
+				}
+
+				//2.- PARALLAX
+				var barra = $(window).scrollTop();
+				var position = barra * 0.10;
+
+				$('body').css({
+					'background-position' : '0 -'+position+'px'
+				});
+			});
+		});
+	</script>
+	<!-- CSS -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+
+			/* descomentar para poder ver otro efecto parallax */
+			/*background: url('img/one.jpg');*/
+			/*background-size: cover; /* ENCAJAR IMAGEN A LA PANTALLA */
+			/*background-attachment: fixed; /* LA IMAGEN NO SE MOVERÁ */ 
+		}
+
+		.contenido{ /* KRATOS */
+			font-size: 25px;
+			width: 600px;
+			margin: 20px auto;
+			text-align: justify;
+			background: url(img/gow.jpg);
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.contenido p{
+			margin: 20px;
+		}
+
+		.contenido2{ /* LANCER */
+			font-size: 25px;
+			width: 600px;
+			margin: 20px auto;
+			text-align: justify;
+			background: url(img/lancer.jpg);
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.contenido2 p{
+			margin: 20px;
+		}
+		
+		/* ESTILO BOTON ARRIBA */
+		.ir-arriba{
+			position: fixed;
+			display: none;
+			padding: 20px;
+			background: #fcec40;
+			cursor:pointer;
+			right: 10px;
+			bottom: 10px;
+		}
+
+		/* ESTILO BARRA SOCIAL */
+		.social{
+			position: fixed;
+			left: 0;
+			top: 200px;
+			z-index: 2000;
+		}
+
+		.social ul{
+			list-style: none;
+		}
+
+		.social ul li a{
+			display: inline-block;
+			color: #fff;
+			background: #000;
+			text-decoration: none;
+			padding: 10px 15px;
+
+			-webkit-transition: all 300ms ease;
+			-o-transition: all 300ms ease;
+			transition: all 300ms ease;
+		}
+
+		.social ul li .icon-facebook2 { background: #3b5998; }
+		.social ul li .icon-instagram { background: #cd486b; }
+		.social ul li .icon-whatsapp { background: #075e54; }
+		.social ul li .icon-youtube { background: #c4302b; }
+		.social ul li .icon-pinterest { background: #ae181f; }
+		.social ul li .correo { background: #d85651; }
+
+		.social ul li a:hover{
+			padding: 10px 30px;
+			background: #000;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="social">
+		<ul>
+			<li><a href="#" target="_blank" class="icon-facebook2"></a></li>
+			<li><a href="#" target="_blank" class="icon-instagram"></a></li>
+			<li><a href="#" target="_blank" class="icon-whatsapp"></a></li>
+			<li><a href="#" target="_blank" class="icon-youtube"></a></li>
+			<li><a href="#" target="_blank" class="icon-pinterest"></a></li>
+			<li><a href="mailto:nicooabarca@gmail.com" class="correo">CORREO</a></li>
+		</ul>
+	</div>
+	
+	<span class="ir-arriba icon-arrow-up"></span>
+	<section class="contenido">
+		<p>El Mitsubishi Lancer es un automóvil de turismo del segmento C producido por el fabricante japonés Mitsubishi Motors desde el año 1973 hasta 2015. Existen ocho generaciones del Lancer, la última de las cuales fue presentada oficialmente en el Salón del Automóvil de Detroit del año 2007. Sus principales rivales fueron los Honda Civic, Toyota Corolla y Subaru Impreza. En 2017, Mitsubishi anunció oficialmente que dejarán de fabricar este modelo y no tendra un reemplazante.<br>
+
+		Según la generación, el Lancer existió con carrocerías cupé, sedán, hatchback y familiar y con tracción delantera o tracción a las cuatro ruedas. En algunos mercados, la versión hatchback de algunas generaciones se vendió con los nombres Colt y Mirage. El fabricante malayo Proton ha fabricado la tercera generación del Lancer como el Saga, y la quinta generación, con los nombres Satria, Wira y Putra. A la fecha ha vendido alrededor del mundo 6 millones de unidades.<br><br>
+
+		El Mitsubishi Lancer es un automóvil de turismo del segmento C producido por el fabricante japonés Mitsubishi Motors desde el año 1973 hasta 2015. Existen ocho generaciones del Lancer, la última de las cuales fue presentada oficialmente en el Salón del Automóvil de Detroit del año 2007. Sus principales rivales fueron los Honda Civic, Toyota Corolla y Subaru Impreza. En 2017, Mitsubishi anunció oficialmente que dejarán de fabricar este modelo y no tendra un reemplazante.<br>
+
+		Según la generación, el Lancer existió con carrocerías cupé, sedán, hatchback y familiar y con tracción delantera o tracción a las cuatro ruedas. En algunos mercados, la versión hatchback de algunas generaciones se vendió con los nombres Colt y Mirage. El fabricante malayo Proton ha fabricado la tercera generación del Lancer como el Saga, y la quinta generación, con los nombres Satria, Wira y Putra. A la fecha ha vendido alrededor del mundo 6 millones de unidades.<br><br></p>
+	</section>
+
+	<section class="contenido2">
+		<p>
+			Kratos (del griego antiguo Κράτος, “fuerza” y “poder” en español) es un personaje de videojuegos creado por la división de Santa Monica de Sony Computer Entertainment, con el consiguiente apoyo de Javaground y Ready at Dawn Studios.<br><br>
+
+			Kratos apareció por primera vez en el juego God of War (puesto en venta en marzo del 2005), basado en la mitología griega. El éxito de la saga permitió el desarrollo de 6 juegos más, en los que Kratos continúa como protagonista.<br><br>
+
+			Después de que se revelara que es un semidiós, Kratos se embarca, a menudo de manera forzosa, en una serie de aventuras con el fin de evitar catástrofes o cambiar su destino. Normalmente, se describe a Kratos ajeno a todo en la ejecución de estas aventuras, involucrándose en actividades moralmente ambiguas y realizando actos de extrema violencia. Cada aventura forma parte de una saga con la venganza como tema principal y proporciona información adicional sobre los orígenes de Kratos y la relación con su familia y los dioses.<br><br>
+
+			Kratos ha recibido críticas positivas, siendo descrito como un “antihéroe con el que simpatizas”.1​Existen varios productos asociados al personaje, incluyendo ilustraciones, ropa, cómics, comida rápida, internet, una novela, loterías, juguetes y protectores de móvil. Game Guru afirma que “Prácticamente todo el mundo, aunque no haya jugado a los juegos de God of War, sabrá quién es Kratos".<br><br>
+
+			Gracias a su gran popularidad, Kratos también ha aparecido en tres juegos además de su serie original, SoulCalibur: Broken Destiny, Mortal Kombat y PlayStation All-Stars Battle Royale.<br><br>
+		</p>
+	</section>
+
+</body>
+</html>
